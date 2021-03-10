@@ -60,6 +60,7 @@ public class AuthController {
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 		String jwt = jwtUtils.generateJwtToken(authentication);
 		
+		//Why getPrincipal()
 		UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();		
 		List<String> roles = userDetails.getAuthorities().stream()
 				.map(item -> item.getAuthority())
@@ -111,7 +112,7 @@ public class AuthController {
 					Role modRole = roleRepository.findByName(ERole.ROLE_MODERATOR)
 							.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
 					roles.add(modRole);
-
+ 
 					break;
 				default:
 					Role userRole = roleRepository.findByName(ERole.ROLE_USER)
