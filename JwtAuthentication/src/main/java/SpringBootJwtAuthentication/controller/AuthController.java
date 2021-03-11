@@ -32,7 +32,7 @@ import SpringBootJwtAuthentication.response.JwtResponse;
 import SpringBootJwtAuthentication.response.MessageResponse;
 import SpringBootJwtAuthentication.service.UserDetailsImpl;
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
